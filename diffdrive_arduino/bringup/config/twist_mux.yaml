@@ -1,0 +1,7 @@
+twist_mux:
+  ros__parameters:
+    topics:
+      navigation:
+        topic: cmd_vel #/diffbot_base_controller/cmd_vel_unstamped
+        timeout: 0.5
+        priority: 10

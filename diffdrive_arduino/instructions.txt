@@ -1,0 +1,21 @@
+LiDAR:
+
+ros2 run rplidar_ros rplidar_composition --ros-args -p serial_port:=/dev/ttyUSB0 -p frame_id:=laser_frame -p angle_compensate:=true -p scan_mode:=Standard -p serial_baudrate:=115200
+
+SLAM:
+
+ros2 launch slam_toolbox online_async_launch.py slam_params_file:=./src/diffdrive_arduino/bringup/config/mapper_params_online_async.yaml use_sim_time:=false
+
+ros2 run nav2_map_server map_server --ros-args -p yaml_filename:=my_map_save.yaml -p use_sim_time:=true
+ros2 run nav2_util lifecycle_bringup map_server
+
+ros2 run nav2_amcl amcl --ros-args -p use_sim_time:=true
+ros2 run nav2_util lifecycle_bringup amcl
+
+NAV2:
+
+ros2 launch nav2_bringup navigation_launch.py use_sim_time:=false
+
+ ros2 run twist_mux twist_mux --ros-args --params-file ./src/diffdrive_arduino/bringup/config/twist_mux.yaml -r cmd_vel_out:=/diffbot_base_controller/cmd_vel_unstamped
+
+
