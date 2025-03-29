@@ -14,7 +14,7 @@
   <xacro:property name="base_height" value="0.06" />
   <xacro:property name="wheel_mass" value="0.3" /> <!-- arbitrary value for wheel mass -->
   <xacro:property name="wheel_len" value="0.050" />
-  <xacro:property name="wheel_radius" value="0.03" />
+  <xacro:property name="wheel_radius" value="0.018" />
   <xacro:property name="caster_wheel_mass" value="0.1" /> <!-- arbitrary value for caster wheel mass -->
   <xacro:property name="caster_wheel_radius" value="0.015" />
   <xacro:property name="z_offset" value="-${base_height/2}" /> <!-- Space btw top of beam and the each joint -->	
